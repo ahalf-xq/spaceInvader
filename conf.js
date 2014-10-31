@@ -1,0 +1,23 @@
+var PLAYER = 1,
+    LASER = 2,
+    ALIEN = 4,
+    ALIEN_BOMB = 8,
+    SHIELD = 16,
+    SAUCER = 32,
+    TOP_OF_SCREEN = 64,
+    TANK_Y = 352 - 16,
+    SHIELD_Y = TANK_Y - 56,
+    SCREEN_WIDTH = 480,
+    SCREEN_HEIGHT = 384,
+    ALIEN_COLUMNS = 11,
+    ALIEN_ROWS = 5,
+    SYS_process,
+    SYS_collisionManager,
+    SYS_timeInfo,
+    SYS_spriteParams = {
+        width: 32,
+        height: 32,
+        imageWidth: 256,
+        images: 'imgs/invaders.png',
+        $drawTarget: $('#draw-target')
+    };
