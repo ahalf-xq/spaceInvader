@@ -150,7 +150,7 @@ var alienBomb = function(x, y, removedCallback) {
             if (moveIndex === -1) {
                 moveIndex = aliensList.length - 1;
                 dy = 0;
-                coeff = SYS_timeInfo.avarageCoeff;
+                coeff = SYS_timeInfo.averageCoeff;
                 dx = 4 * (dx < 0 ? -coeff : coeff);
                 if (changeDir) {
                     dx = -dx;
@@ -158,7 +158,7 @@ var alienBomb = function(x, y, removedCallback) {
                     dy = 16;
                 }
                 if (!waitFire) {
-                    fireAlien = aliensFireList[Math.floor(Math.random() * (aliensList.length))];
+                    fireAlien = aliensFireList[Math.floor(Math.random() * (aliensFireList.length))];
                     xy = fireAlien.getXY();
                     alienBomb(xy.x, xy.y, function() {
                         waitFire = false;

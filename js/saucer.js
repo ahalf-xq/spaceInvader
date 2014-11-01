@@ -1,5 +1,5 @@
 var saucer = function(gameCallback) {
-    var dx = (Math.floow(Math.random() * 2) * 2) - 1,
+    var dx = (Math.floor(Math.random() * 2) * 2) - 1,
         x = 0,
         that, remove, hit,
         collider;

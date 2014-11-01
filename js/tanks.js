@@ -3,7 +3,7 @@ var tank = function(gameCallback) {
         canFire = true,
         collider,
         waitFireRelease = true,
-        that = DHTMLSprite(SYS_spriteParms);
+        that = DHTMLSprite(SYS_spriteParams);
     that.changeImage(6);
     that.draw(x, TANK_Y);
     that.move = function() {
@@ -44,7 +44,7 @@ var tank = function(gameCallback) {
     collider = SYS_collisionManager.newCollider(PLAYER, ALIEN_BOMB, 30, 12, that.hit);
     SYS_process.add(that);
 }, laser = function(x, y, callback) {
-    var that = DHTMLSprite(SYS_spriteParms),
+    var that = DHTMLSprite(SYS_spriteParams),
         collider;
     that.remove = function(collideeFlags) {
         if (collideeFlags && (TOP_OF_SCREEN + SHIELD + ALIEN_BOMB)) {
@@ -69,7 +69,7 @@ var tank = function(gameCallback) {
     SYS_process.add(that);
 }, shield = function(x, y) {
     var shieldBrick = function(x, y, image) {
-        var that = DHTMLSprite(SYS_spriteParms),
+        var that = DHTMLSprite(SYS_spriteParams),
             collider,
             hit = function() {
                 that.destroy();
@@ -84,7 +84,7 @@ var tank = function(gameCallback) {
         1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 5,
         3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
         3, 3, 3, 6, 7, 0, 0, 8, 9, 3, 3, 3,
-        3, 3, 3, 0, 0, 0, 0, 0, 0, 3, 3, 3 
+        3, 3, 3, 0, 0, 0, 0, 0, 0, 3, 3, 3
     ], i;
     for (i = 0; i < brickLayout.length; i++) {
         if (brickLayout[i]) {

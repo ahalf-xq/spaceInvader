@@ -32,13 +32,13 @@ var game = function() {
             }
             if (!$('#score').length) {
                 $('#draw-target').append('<div id="score"></div>' +
-                    '<div id="lives"></div><div id="hightScore"></div>');
+                    '<div id="lives"></div><div id="highScore"></div>');
             }
             if (score > hightScore) {
                 hightScore = score;
             }
             $('#score').text('SCORE:' + score);
-            $('#hightScore').text('HIGH:' + hightScore);
+            $('#highScore').text('HIGH:' + hightScore);
             $('#lives').text('LIVES:' + lives);
         },
         newSaucer = function() {
@@ -48,7 +48,7 @@ var game = function() {
                 newSaucer();
             }, (Math.random() * 5000) + 15000);
         },
-        init: function() {
+        init = function() {
             $('#draw-target').children().remove();
             SYS_process = processor();
             SYS_collisionManager = collisionManager();
@@ -124,10 +124,11 @@ var game = function() {
                         gameState = 'playing';
                         init();
                     }
+                    break;
             }
             setTimeout(gameLoop, 15);
-        }();
+        };
 
     $('#draw-target').append(startText);
     gameLoop();
-};
+}();

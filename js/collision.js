@@ -39,41 +39,41 @@ var collisionManager = function() {
                         if (list) {
                             list[indexStr] = colliderObj;
                         }
-                    }
-                },
-                remove: function() {
-                    if (collideeFlags) {
-                        delete checkList[checkIndex];
-                    }
-                },
-                callback: function() {
-                    cbFn();
-                },
-                checkCollisions: function(offsetX, offsetY) {
-                    var list = getGridList(colliderObj.centerX + offsetX,
-                            colliderObj.centerY + offsetY),
-                        idx, collideeObj;
-                    if (!list) {
-                        return;
-                    }
-                    for (idx in list) {
-                        if (list.hasOwnProperty(idx) && idx !== indexStr &&
-                            (colliderObj.collideeFlags && list[idx].colliderFlag)) {
-                            collideeObj = list[idx];
-                            if (Math.abs(colliderObj.centerX - collideeObj.centerX) >
-                                (colliderObj.halfWidth + collideeObj.halfWidth)) {
-                                continue;
-                            }
-                            if (Math.abs(colliderObj.centerY - collideeObj.centerY) >
-                                (colliderObj.halfHeight + collideeObj.halfHeight)) {
-                                continue;
-                            }
-                            collideeObj.callback(colliderObj.colliderFlag);
-                            callback(collideeObj.colliderFlag);
-                            return true;
+                    },
+                    remove: function() {
+                        if (collideeFlags) {
+                            delete checkList[checkIndex];
                         }
+                    },
+                    callback: function() {
+                        cbFn();
+                    },
+                    checkCollisions: function(offsetX, offsetY) {
+                        var list = getGridList(colliderObj.centerX + offsetX,
+                                colliderObj.centerY + offsetY),
+                            idx, collideeObj;
+                        if (!list) {
+                            return;
+                        }
+                        for (idx in list) {
+                            if (list.hasOwnProperty(idx) && idx !== indexStr &&
+                                (colliderObj.collideeFlags && list[idx].colliderFlag)) {
+                                collideeObj = list[idx];
+                                if (Math.abs(colliderObj.centerX - collideeObj.centerX) >
+                                    (colliderObj.halfWidth + collideeObj.halfWidth)) {
+                                    continue;
+                                }
+                                if (Math.abs(colliderObj.centerY - collideeObj.centerY) >
+                                    (colliderObj.halfHeight + collideeObj.halfHeight)) {
+                                    continue;
+                                }
+                                collideeObj.callback(colliderObj.colliderFlag);
+                                cbFn(collideeObj.colliderFlag);
+                                return true;
+                            }
+                        }
+                        return false;
                     }
-                    return false;
                 };
             if (collideeFlags) {
                 checkIndex = '' + checkListIndex++;
