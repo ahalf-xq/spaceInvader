@@ -47,7 +47,7 @@ var tank = function(gameCallback) {
     var that = DHTMLSprite(SYS_spriteParams),
         collider;
     that.remove = function(collideeFlags) {
-        if (collideeFlags && (TOP_OF_SCREEN + SHIELD + ALIEN_BOMB)) {
+        if (collideeFlags & (TOP_OF_SCREEN + SHIELD + ALIEN_BOMB)) {
             animEffect(x, y, [18], 250, null);
         }
         that.destroy();

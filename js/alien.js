@@ -52,7 +52,7 @@ var alienBomb = function(x, y, removedCallback) {
         }
         collider.update(x, y);
         that.draw(x, y);
-        if ((dx > 0 && x > SCREEN_WIDTH - 32 -16) || (dx < 0 && x <= 16)) {
+        if ((dx > 0 && x >= SCREEN_WIDTH - 32 -16) || (dx < 0 && x <= 16)) {
             return true;
         }
         return false;

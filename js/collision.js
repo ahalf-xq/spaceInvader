@@ -30,7 +30,7 @@ var collisionManager = function() {
                     colliderFlag: colliderFlag,
                     collideeFlags: collideeFlags,
                     update: function(x, y) {
-                        colliderObj.center = x + 16;
+                        colliderObj.centerX = x + 16;
                         colliderObj.centerY = y + 32 - colliderObj.halfHeight;
                         if (list) {
                             delete list[indexStr];
@@ -43,6 +43,9 @@ var collisionManager = function() {
                     remove: function() {
                         if (collideeFlags) {
                             delete checkList[checkIndex];
+                        }
+                        if (list) {
+                            delete list[indexStr];
                         }
                     },
                     callback: function() {
@@ -57,7 +60,7 @@ var collisionManager = function() {
                         }
                         for (idx in list) {
                             if (list.hasOwnProperty(idx) && idx !== indexStr &&
-                                (colliderObj.collideeFlags && list[idx].colliderFlag)) {
+                                (colliderObj.collideeFlags & list[idx].colliderFlag)) {
                                 collideeObj = list[idx];
                                 if (Math.abs(colliderObj.centerX - collideeObj.centerX) >
                                     (colliderObj.halfWidth + collideeObj.halfWidth)) {
