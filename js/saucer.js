@@ -23,7 +23,7 @@ var saucer = function(gameCallback) {
         });
     };
     collider = SYS_collisionManager.newCollider(SAUCER, 0 ,32, 14, hit);
-    that.remove = function() {
+    that.move = function() {
         that.draw(x, 32);
         collider.update(x, 32);
         x += dx;

@@ -3,7 +3,7 @@ var alienBomb = function(x, y, removedCallback) {
         collider;
     that.changeImage(19);
     that.remove = function() {
-        animEffect(x, y + 8, [18], 250, null);
+        animEffect(x, y + 8, [18], 250);
         that.destroy();
         collider.remove();
         that.removed = true;
@@ -28,7 +28,7 @@ var alienBomb = function(x, y, removedCallback) {
         if (colliderFlag & SHIELD) {
             return;
         }
-        animEffect(x, y, [8], 250, null);
+        animEffect(x, y, [8], 250);
         that.destroy();
         collider.remove();
         that.removed = true;
@@ -159,6 +159,7 @@ var alienBomb = function(x, y, removedCallback) {
                 }
                 if (!waitFire) {
                     fireAlien = aliensFireList[Math.floor(Math.random() * (aliensFireList.length))];
+                    console.log(fireAlien)
                     xy = fireAlien.getXY();
                     alienBomb(xy.x, xy.y, function() {
                         waitFire = false;
